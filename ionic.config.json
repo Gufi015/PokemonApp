@@ -1,0 +1,7 @@
+{
+  "name": "pokemon-demo",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

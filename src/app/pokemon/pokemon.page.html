@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Pokemon</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-card-content>
+    <ion-card-header  color="primary">
+      <ion-card-subtitle>
+          <h2>Listado de Pokemones</h2>
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-item *ngFor="let pokemon of datos; let i of index">
+      <h3>{{pokemon.name | uppercase}}</h3>
+      <ion-img slot="end" src="{{pokemon.img}}"></ion-img>
+     
+    </ion-item>
+  </ion-card-content>
+
+</ion-content>
