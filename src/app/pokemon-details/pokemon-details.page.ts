@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -9,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class PokemonDetailsPage implements OnInit {
   arg:any;
 
-  constructor(private activedRoter: ActivatedRoute, private router: Router) {
+  constructor(private activedRoter: ActivatedRoute, private router: Router, private loadingControler:LoadingController ) {
     this.activedRoter.queryParams.subscribe(params =>{
       if(params && params.pokemonId){
         this.arg = JSON.parse(params.pokemonId);

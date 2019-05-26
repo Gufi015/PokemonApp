@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from '../services.service';
 import { Router, NavigationExtras } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-pokemon',
@@ -10,16 +11,24 @@ import { Router, NavigationExtras } from '@angular/router';
 export class PokemonPage implements OnInit {
 
   datos:any;
-  constructor(private servicio: ServicesService, private router: Router) {
+  constructor(private servicio: ServicesService, private router: Router, private loadingController:LoadingController) {
 
    }
 
-  ngOnInit() {
+  async ngOnInit() {
+    const loading = await this.loadingController.create({
+      message: 'Cargando...',
+      duration: 2000
+    });
+    
 
     this.servicio.servicioPokemon().then(data =>{
+      loading.present();
       this.datos = data['pokemon'];
       console.log('estos son los datos de pokemon ' + JSON.stringify(this.datos));
+      loading.dismiss();
     },error =>{
+      loading.dismiss();
       console.log(error);
     });
   }
