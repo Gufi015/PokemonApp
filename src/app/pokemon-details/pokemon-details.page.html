@@ -17,12 +17,12 @@
         <p class="centerH3">* {{debilidad}}</p>
       </ion-item>
 
-      <h2>Pre - Evolución (PrevEvolution)</h2>
+      <h2 *ngIf="arg.prev_evolution">Pre - Evolución (PrevEvolution)</h2>
       <ion-item text-center lines="none" *ngFor="let evolu of arg.prev_evolution" >
         <p class="centerH3">* {{evolu.name}}</p>
       </ion-item>
 
-      <h2>Evolución (NextEvolution)</h2>
+      <h2 *ngIf="arg.next_evolution" >Evolución (NextEvolution)</h2>
       <ion-item text-center lines="none" *ngFor="let evolu of arg.next_evolution" >
         <p class="centerH3">* {{evolu.name}}</p>
       </ion-item>    

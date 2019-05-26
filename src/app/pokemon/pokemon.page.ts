@@ -28,13 +28,16 @@ export class PokemonPage implements OnInit {
   pokemonDetails(i){
 
     console.log('este es el dato que trae '+ JSON.stringify(i));
-    console.log(this.datos[i]);
+    
+    const indice = i;
+    console.log('datos con indice'+  JSON.stringify(i));
+    console.log(indice)
     let navigationEx: NavigationExtras = {
       queryParams: {
-        pokemonId: JSON.stringify(this.datos[i])
+        pokemonId: JSON.stringify(i)
       }
     };
-    console.log(navigationEx);
+    console.log('este es el que envia ' + JSON.stringify(navigationEx));
     this.router.navigate(['pokemon-details'], navigationEx); 
   }
 
