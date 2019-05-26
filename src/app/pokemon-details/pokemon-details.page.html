@@ -1,9 +1,31 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>pokemonDetails</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Pokemon detalle</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title text-center>{{arg.name | uppercase}}</ion-card-title>
+      <ion-item lines="none">
+        <ion-img class="img" src="{{arg.img}}"></ion-img>
+      </ion-item>
 
+      <h2>Debilidaddes (Weaknesses)</h2>
+      <ion-item text-center lines="none" *ngFor="let debilidad of arg.weaknesses" >
+        <p class="centerH3">* {{debilidad}}</p>
+      </ion-item>
+
+      <h2>Pre - Evolución (PrevEvolution)</h2>
+      <ion-item text-center lines="none" *ngFor="let evolu of arg.prev_evolution" >
+        <p class="centerH3">* {{evolu.name}}</p>
+      </ion-item>
+
+      <h2>Evolución (NextEvolution)</h2>
+      <ion-item text-center lines="none" *ngFor="let evolu of arg.next_evolution" >
+        <p class="centerH3">* {{evolu.name}}</p>
+      </ion-item>    
+    </ion-card-content>
+  </ion-card>
 </ion-content>

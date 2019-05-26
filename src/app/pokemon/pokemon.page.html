@@ -10,10 +10,9 @@
           <h2>Listado de Pokemones</h2>
       </ion-card-subtitle>
     </ion-card-header>
-    <ion-item *ngFor="let pokemon of datos; let i of index">
+    <ion-item *ngFor="let pokemon of datos; let i of index" >
       <h3>{{pokemon.name | uppercase}}</h3>
-      <ion-img slot="end" src="{{pokemon.img}}"></ion-img>
-     
+      <ion-img class="img" padding slot="end" src="{{pokemon.img}}" (click)="pokemonDetails(pokemon.id)"></ion-img>
     </ion-item>
   </ion-card-content>
 

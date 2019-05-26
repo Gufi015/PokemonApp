@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from '../services.service';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon',
@@ -9,7 +10,9 @@ import { ServicesService } from '../services.service';
 export class PokemonPage implements OnInit {
 
   datos:any;
-  constructor(private servicio: ServicesService) { }
+  constructor(private servicio: ServicesService, private router: Router) {
+
+   }
 
   ngOnInit() {
 
@@ -19,6 +22,20 @@ export class PokemonPage implements OnInit {
     },error =>{
       console.log(error);
     });
+  }
+
+
+  pokemonDetails(i){
+
+    console.log('este es el dato que trae '+ JSON.stringify(i));
+    console.log(this.datos[i]);
+    let navigationEx: NavigationExtras = {
+      queryParams: {
+        pokemonId: JSON.stringify(this.datos[i])
+      }
+    };
+    console.log(navigationEx);
+    this.router.navigate(['pokemon-details'], navigationEx); 
   }
 
 }
